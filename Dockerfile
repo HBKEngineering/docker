@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y git curl zip && rm -rf /var/lib/apt/lis
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 6000
+ENV JENKINS_OPTS '--httpPort=5000'
 
 ARG user=jenkins
 ARG group=jenkins
