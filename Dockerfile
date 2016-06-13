@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y git curl zip && rm -rf /var/lib/apt/lis
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
-ENV HTTP_PORT 80
 
 ARG user=jenkins
 ARG group=jenkins
