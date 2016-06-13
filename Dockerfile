@@ -3,7 +3,7 @@ FROM java:8-jdk
 RUN apt-get update && apt-get install -y git curl zip && rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
-ENV JENKINS_SLAVE_AGENT_PORT 50000
+ENV JENKINS_SLAVE_AGENT_PORT 6000
 
 ARG user=jenkins
 ARG group=jenkins
@@ -48,10 +48,10 @@ ENV JENKINS_UC https://updates.jenkins.io
 RUN chown -R ${user} "$JENKINS_HOME" /usr/share/jenkins/ref
 
 # for main web interface:
-EXPOSE 8080
+# EXPOSE 8080
 
 # will be used by attached slave agents:
-EXPOSE 50000
+#EXPOSE 50000
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
