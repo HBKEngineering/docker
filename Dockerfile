@@ -16,6 +16,8 @@ ARG gid=1000
 # ensure you use the same uid
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
+    
+RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
