@@ -1,6 +1,6 @@
 FROM java:8-jdk
 
-RUN apt-add-repository ppa:brightbox/ruby-ng
+RUN add-apt-repository ppa:brightbox/ruby-ng
 RUN apt-get update && apt-get install -y git python-pip curl zip build-essential ruby2.3 ruby2.3-dev && rm -rf /var/lib/apt/lists/*
 RUN pip install awscli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
