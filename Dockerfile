@@ -2,7 +2,7 @@ FROM java:8-jdk
 
 RUN apt-get update && apt-get install -y apt-utils
 RUN apt-get install -y ruby2.1 ruby2.1-dev
-RUN apt-get update && apt-get install -y git python-pip curl zip build-essential libgemplugin-ruby rubygems-integration && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git python-pip curl zip build-essential rubygems rubygems-integration && rm -rf /var/lib/apt/lists/*
 RUN pip install awscli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 RUN gem install sass
