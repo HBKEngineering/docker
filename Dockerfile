@@ -26,6 +26,8 @@ ARG gid=1000
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
+# Add user to docker group for sudoless docker
+RUN gpasswd -a ${user} docker
 
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
