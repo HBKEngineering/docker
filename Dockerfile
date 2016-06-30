@@ -16,9 +16,8 @@ ENV JENKINS_SLAVE_AGENT_PORT 6000
 ENV JENKINS_OPTS '--httpPort=5000'
 
 ARG user=jenkins
-ARG group=jenkins
+ARG group=docker
 ARG uid=1000
-ARG gid=1000
 
 # Jenkins is run with user `jenkins`, uid = 1000
 # If you bind mount a volume from the host or a data container, 
