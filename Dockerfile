@@ -6,8 +6,10 @@ RUN apt-get update && apt-get install -y git python-pip curl zip build-essential
 RUN pip install awscli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 RUN gem install sass
-RUN apt-get install docker
 
+RUN wget https://test.docker.com/builds/Linux/x86_64/docker-1.12.0-rc2.tgz
+RUN tar -xvzf docker-1.12.0-rc2.tgz
+COPY docker/docker /usr/local/bin/docker
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 6000
