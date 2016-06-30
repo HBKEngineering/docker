@@ -9,7 +9,7 @@ RUN gem install sass
 
 RUN wget https://test.docker.com/builds/Linux/x86_64/docker-1.12.0-rc2.tgz
 RUN tar -xvzf docker-1.12.0-rc2.tgz
-COPY docker/docker /usr/local/bin/docker
+RUN cp docker/docker /usr/local/bin/docker
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 6000
