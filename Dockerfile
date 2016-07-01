@@ -17,8 +17,8 @@ ENV JENKINS_OPTS '--httpPort=5000'
 
 ARG user=jenkins
 ARG group=jenkins
-ARG uid=1002
-ARG gid=1002
+ARG uid=1000
+ARG gid=1000
 
 
 # Jenkins is run with user `jenkins`, uid = 1000
