@@ -17,17 +17,17 @@ ENV JENKINS_OPTS '--httpPort=5000'
 
 ARG user=jenkins
 ARG group=jenkins
-ARG uid=1000
-ARG gid=1000
+ARG uid=1002
+ARG gid=1002
 
 
 # Jenkins is run with user `jenkins`, uid = 1000
 # If you bind mount a volume from the host or a data container, 
 # ensure you use the same uid
-RUN groupadd -g ${gid} ${group} \
-    && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
+# RUN groupadd -g ${gid} ${group} \
+#     && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
-RUN groupadd docker && gpasswd -a jenkins docker 
+# RUN groupadd docker && gpasswd -a jenkins docker 
 
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
