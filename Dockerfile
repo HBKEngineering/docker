@@ -27,8 +27,7 @@ ARG gid=1000
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
-# Give the jenkins user sudo in order to docker, see http://container-solutions.com/running-docker-in-jenkins-in-docker/
-RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+RUN usermod -g docker jenkins
 
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
