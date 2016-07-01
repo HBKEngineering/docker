@@ -27,7 +27,7 @@ ARG gid=1000
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
-# RUN groupadd docker && gpasswd -a jenkins docker 
+RUN groupadd docker && gpasswd -a jenkins docker 
 
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
