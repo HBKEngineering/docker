@@ -7,8 +7,8 @@ RUN pip install awscli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 RUN gem install sass
 
-RUN wget https://test.docker.com/builds/Linux/x86_64/docker-1.12.0-rc2.tgz
-RUN tar -xvzf docker-1.12.0-rc2.tgz
+RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
+RUN tar -xvzf docker-1.11.2-rc2.tgz
 RUN cp docker/docker /usr/local/bin/docker
 
 ENV JENKINS_HOME /var/jenkins_home
@@ -26,8 +26,6 @@ ARG gid=1000
 # ensure you use the same uid
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
-
-RUN groupadd docker && gpasswd -a jenkins docker 
 
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
