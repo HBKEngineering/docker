@@ -8,7 +8,7 @@ RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli
 RUN gem install sass
 
 RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
-RUN tar -xvzf docker-1.11.2-rc2.tgz
+RUN tar -xvzf docker-1.11.2.tgz
 RUN cp docker/docker /usr/local/bin/docker
 
 ENV JENKINS_HOME /var/jenkins_home
