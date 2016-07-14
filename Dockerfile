@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y git python-pip curl zip build-essential
 RUN pip install awscli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 RUN gem install sass
+RUN pip install requests
 
 RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
 RUN tar -xvzf docker-1.11.2.tgz
