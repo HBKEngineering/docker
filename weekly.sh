@@ -9,13 +9,13 @@ echo $JENKINS_VERSION
 JENKINS_SHA=`curl http://repo.jenkins-ci.org/simple/releases/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war.sha1`
 echo $JENKINS_SHA
 
-docker build --build-arg JENKINS_VERSION=$JENKINS_VERSION \
-             --build-arg JENKINS_SHA=$JENKINS_SHA \
-             --tag jenkinsci/jenkins:$JENKINS_VERSION .
+# docker build --build-arg JENKINS_VERSION=$JENKINS_VERSION \
+#             --build-arg JENKINS_SHA=$JENKINS_SHA \
+#             --tag jenkinsci/jenkins:$JENKINS_VERSION .
 
-docker tag -f jenkinsci/jenkins:$JENKINS_VERSION jenkinsci/jenkins:latest
+# docker tag -f jenkinsci/jenkins:$JENKINS_VERSION jenkinsci/jenkins:latest
 
-docker push jenkinsci/jenkins:$JENKINS_VERSION
-docker push jenkinsci/jenkins:latest
+# docker push jenkinsci/jenkins:$JENKINS_VERSION
+# docker push jenkinsci/jenkins:latest
 
 
