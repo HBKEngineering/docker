@@ -25,8 +25,8 @@ server {
 server {
     listen 6000;
     server_name {{ .NOSSL_SERVER_NAME }};
-    access_log /var/log/nginx/{{ .APP }}-access.log
-    error_log /var/log/nginx/{{ .APP }}-error.log
+    access_log /var/log/nginx/{{ .APP }}-access.log;
+    error_log /var/log/nginx/{{ .APP }}-error.log;
     
     location / {
         proxy_set_header    Host $host:$server_port;
