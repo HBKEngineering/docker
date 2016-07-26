@@ -69,8 +69,8 @@ RUN chown -R ${user} "$JENKINS_HOME" /usr/share/jenkins/ref
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
-#ADD nginx.conf.sigil /app/
-#RUN chown -R ${user} /app
+ADD nginx.conf.sigil /app/
+RUN chown -R ${user} /app
 
 EXPOSE 6000
 
