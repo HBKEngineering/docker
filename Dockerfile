@@ -72,8 +72,6 @@ ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 ADD nginx.conf.sigil /app/
 RUN chown -R ${user} /app
 
-EXPOSE 6000
-
 USER ${user}
 
 COPY jenkins.sh /usr/local/bin/jenkins.sh
