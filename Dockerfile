@@ -4,9 +4,9 @@ RUN apt-get update && apt-get install -y apt-utils
 RUN apt-get install -y ruby2.1 ruby2.1-dev
 RUN apt-get update && apt-get install -y git python-pip curl zip build-essential rubygems rubygems-integration && rm -rf /var/lib/apt/lists/*
 RUN pip install awscli
+RUN pip install awsebcli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 RUN gem install sass
-RUN pip install requests
 
 RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
 RUN tar -xvzf docker-1.11.2.tgz
