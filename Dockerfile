@@ -11,6 +11,7 @@ RUN gem install sass
 RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
 RUN tar -xvzf docker-1.11.2.tgz
 RUN cp docker/docker /usr/local/bin/docker
+ENV DOCKER_CERT_PATH /var/docker-keys
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 6000
@@ -33,6 +34,9 @@ RUN chmod 777 -R /tmp && chmod o+t -R /tmp
 # Jenkins home directory is a volume, so configuration and build history 
 # can be persisted and survive image upgrades
 VOLUME /var/jenkins_home
+
+# Add another volume for injecting docker certificates
+VOLUME /var/docker-keys
 
 # `/usr/share/jenkins/ref/` contains all reference configuration we want 
 # to set on a fresh new installation. Use it to bundle additional plugins 
