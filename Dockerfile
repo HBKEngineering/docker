@@ -12,7 +12,6 @@ RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
 RUN tar -xvzf docker-1.11.2.tgz
 RUN cp docker/docker /usr/local/bin/docker
 ENV DOCKER_CERT_PATH /var/docker-keys
-RUN pip install docker-compose
 
 RUN wget https://github.com/rancher/rancher-compose/releases/download/v0.9.2/rancher-compose-linux-amd64-v0.9.2.tar.gz
 RUN gunzip rancher-compose-linux-amd64-v0.9.2.tar.gz
