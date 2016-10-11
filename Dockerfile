@@ -8,8 +8,8 @@ RUN pip install awsebcli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
 RUN gem install sass
 
-RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.2.tgz
-RUN tar -xvzf docker-1.11.2.tgz
+RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.12.1.tgz
+RUN tar -xvzf docker-1.12.1.tgz
 RUN cp docker/docker /usr/local/bin/docker
 ENV DOCKER_CERT_PATH /var/docker-keys
 
