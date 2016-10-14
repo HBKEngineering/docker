@@ -13,6 +13,11 @@ RUN tar -xvzf docker-1.12.1.tgz
 RUN cp docker/docker /usr/local/bin/docker
 ENV DOCKER_CERT_PATH /var/docker-keys
 
+RUN wget https://github.com/rancher/cli/releases/download/v0.1.0/rancher-linux-amd64-v0.1.0.tar.gz
+RUN gunzip rancher-linux-amd64-v0.1.0.tar.gz
+RUN tar -xvf rancher-linux-amd64-v0.1.0.tar
+RUN cp rancher-v0.1.0/rancher /usr/local/bin/rancher
+
 RUN wget https://github.com/rancher/rancher-compose/releases/download/v0.9.2/rancher-compose-linux-amd64-v0.9.2.tar.gz
 RUN gunzip rancher-compose-linux-amd64-v0.9.2.tar.gz
 RUN tar -xvf rancher-compose-linux-amd64-v0.9.2.tar
