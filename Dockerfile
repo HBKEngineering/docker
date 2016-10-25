@@ -2,9 +2,7 @@ FROM java:8-jdk
 
 RUN rm -rf /etc/apt/trusted.gpg.d/* && apt-key update
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get update
-RUN apt-get update && apt-get install -y apt-utils
-RUN apt-get install -y ruby2.1 ruby2.1-dev
-RUN apt-get update && apt-get install -y git python-pip curl zip gzip build-essential rubygems rubygems-integration && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y apt-utils ruby2.1 ruby2.1-dev git python-pip curl zip gzip build-essential rubygems rubygems-integration && rm -rf /var/lib/apt/lists/*
 RUN pip install awscli
 RUN pip install awsebcli
 RUN L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
