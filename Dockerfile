@@ -1,5 +1,6 @@
 FROM java:8-jdk
 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get update
 RUN apt-get update && apt-get install -y apt-utils
 RUN apt-get install -y ruby2.1 ruby2.1-dev
 RUN apt-get update && apt-get install -y git python-pip curl zip gzip build-essential rubygems rubygems-integration && rm -rf /var/lib/apt/lists/*
